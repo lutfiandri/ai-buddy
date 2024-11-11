@@ -144,10 +144,10 @@ export function AppSidebar() {
               {item.title}
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu>
+              <SidebarMenu className="gap-0">
                 {item.items.map((item2) => (
                   <SidebarMenuItem key={item2.title}>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton asChild size="sm">
                       <a href={item2.url}>
                         <span>{item2.title}</span>
                       </a>
