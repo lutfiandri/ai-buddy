@@ -90,13 +90,15 @@ function Chat() {
           consectetur numquam!
         </BubbleChat>
       </div>
-      <div className="container p-4 flex flex-col gap-4 justify-center items-center sticky bottom-0 bg-white border-t border-sidebar-border">
-        <ChatInput
-          ref={inputRef}
-          text={prompt}
-          setText={setPrompt}
-          onSubmit={onSubmit}
-        />
+      <div className="w-full bg-white border-t border-sidebar-border sticky bottom-0">
+        <div className="container p-4 flex flex-col gap-4 justify-center items-center">
+          <ChatInput
+            ref={inputRef}
+            text={prompt}
+            setText={setPrompt}
+            onSubmit={onSubmit}
+          />
+        </div>
       </div>
     </Layout>
   );
