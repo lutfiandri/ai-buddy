@@ -4,10 +4,13 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
+import { MessageCirclePlus } from 'lucide-react';
 
 // Menu items.
 const items = [
@@ -137,6 +140,11 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader>
+        <Button variant="default">
+          New Chat <MessageCirclePlus />
+        </Button>
+      </SidebarHeader>
       <SidebarContent>
         {items.map((item, i) => (
           <SidebarGroup key={i}>

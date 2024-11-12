@@ -1,6 +1,8 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { SidebarProvider } from '@/components/ui/sidebar';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import './index.css';
 
 // import Home from '@/pages/Home.tsx';
@@ -21,8 +23,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <React.Suspense>
-      <RouterProvider router={router} />
-    </React.Suspense>
+    <SidebarProvider>
+      <TooltipProvider>
+        <React.Suspense>
+          <RouterProvider router={router} />
+        </React.Suspense>
+      </TooltipProvider>
+    </SidebarProvider>
   </StrictMode>
 );
