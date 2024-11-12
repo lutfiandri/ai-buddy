@@ -9,9 +9,9 @@ import { useState, useRef } from 'react';
 import {
   AutosizeTextarea,
   AutosizeTextAreaRef,
-} from './components/ui/autosize-textarea';
+} from '@/components/ui/autosize-textarea';
 
-function App() {
+function Home() {
   const [prompt, setPrompt] = useState('');
   const inputRef = useRef<AutosizeTextAreaRef>(null);
 
@@ -63,4 +63,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
