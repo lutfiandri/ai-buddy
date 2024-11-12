@@ -1,10 +1,12 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
-import Home from '@/pages/Home.tsx';
-import Chat from '@/pages/Chat.tsx';
+// import Home from '@/pages/Home.tsx';
+
+const Home = React.lazy(() => import('@/pages/Home'));
+const Chat = React.lazy(() => import('@/pages/Chat'));
 
 const router = createBrowserRouter([
   {

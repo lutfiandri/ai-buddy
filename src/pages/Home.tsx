@@ -10,6 +10,7 @@ import {
   AutosizeTextarea,
   AutosizeTextAreaRef,
 } from '@/components/ui/autosize-textarea';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
   const [prompt, setPrompt] = useState('');
@@ -19,6 +20,12 @@ function Home() {
     setPrompt(prompt.description);
     inputRef.current?.textArea?.focus();
   };
+
+  const onSubmit = () => {
+    navigate('/c');
+  };
+
+  const navigate = useNavigate();
 
   return (
     <Layout>
@@ -34,7 +41,7 @@ function Home() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           ></AutosizeTextarea>
-          <Button>
+          <Button onClick={onSubmit}>
             <SendIcon></SendIcon>
           </Button>
         </div>
