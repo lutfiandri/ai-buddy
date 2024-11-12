@@ -1,20 +1,17 @@
-import { Button } from '@/components/ui/button';
 import { Layout } from '@/components/layout/layout';
-import { SendIcon } from 'lucide-react';
 import {
   PromptCards,
   PromptCardProps,
 } from '@/components/template/prompt-card';
 import { useState, useRef } from 'react';
-import {
-  AutosizeTextarea,
-  AutosizeTextAreaRef,
-} from '@/components/ui/autosize-textarea';
+import { AutosizeTextAreaRef } from '@/components/ui/autosize-textarea';
 import { useNavigate } from 'react-router-dom';
+import { ChatInput } from '@/components/template/chat-input';
 
 function Home() {
-  const [prompt, setPrompt] = useState('');
+  const navigate = useNavigate();
   const inputRef = useRef<AutosizeTextAreaRef>(null);
+  const [prompt, setPrompt] = useState('');
 
   const onPromptClick = (prompt: PromptCardProps) => {
     setPrompt(prompt.description);
@@ -25,26 +22,18 @@ function Home() {
     navigate('/c');
   };
 
-  const navigate = useNavigate();
-
   return (
     <Layout>
       <div className="flex-1 container p-4 flex flex-col gap-4 justify-center items-center">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold">
           Hi, Lutfi! AI Buddy is here to help.
         </h1>
-        <div className="flex w-full max-w-lg items-center space-x-2">
-          <AutosizeTextarea
-            ref={inputRef}
-            itemType="text"
-            placeholder="Ask me anything..."
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-          ></AutosizeTextarea>
-          <Button onClick={onSubmit}>
-            <SendIcon></SendIcon>
-          </Button>
-        </div>
+        <ChatInput
+          ref={inputRef}
+          text={prompt}
+          setText={setPrompt}
+          onSubmit={onSubmit}
+        />
         <PromptCards
           onPromptClick={onPromptClick}
           prompts={[
