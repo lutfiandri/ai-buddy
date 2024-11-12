@@ -90,8 +90,8 @@ function Chat() {
           consectetur numquam!
         </BubbleChat>
       </div>
-      <div className="w-full bg-white border-t border-sidebar-border sticky bottom-0">
-        <div className="container p-4 flex flex-col gap-4 justify-center items-center">
+      <div className="w-full p-2 bg-white border-t border-sidebar-border sticky bottom-0">
+        <div className="container max-w-3xl flex flex-col gap-4 justify-center items-center">
           <ChatInput
             ref={inputRef}
             text={prompt}
