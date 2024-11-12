@@ -2,7 +2,7 @@ import { Layout } from '@/components/layout/layout';
 import { BubbleChat } from '@/components/template/bubble-chat';
 import { ChatInput } from '@/components/template/chat-input';
 import { AutosizeTextAreaRef } from '@/components/ui/autosize-textarea';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Chat() {
@@ -13,6 +13,12 @@ function Chat() {
   const onSubmit = () => {
     navigate('/c');
   };
+
+  const endRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView();
+  }, []);
 
   return (
     <Layout>
@@ -89,6 +95,7 @@ function Chat() {
           quae natus alias, accusantium eveniet aspernatur placeat maxime
           consectetur numquam!
         </BubbleChat>
+        <div ref={endRef}></div>
       </div>
       <div className="w-full p-2 bg-white border-t border-sidebar-border sticky bottom-0">
         <div className="container max-w-3xl flex flex-col gap-4 justify-center items-center">

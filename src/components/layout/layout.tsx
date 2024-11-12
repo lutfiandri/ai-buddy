@@ -42,7 +42,7 @@ export function Layout({ children }: Props) {
             <TooltipContent side="bottom">{sidebarButtonText}</TooltipContent>
           </Tooltip>
           <Select defaultValue="gpt-4o">
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-fit">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
