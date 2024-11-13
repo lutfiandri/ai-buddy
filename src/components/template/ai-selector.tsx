@@ -8,6 +8,25 @@ import {
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+const AI_OPTIONS = [
+  {
+    name: 'GPT 4o',
+    value: 'gpt-4o',
+  },
+  {
+    name: 'GPT 4o Mini',
+    value: 'gpt-4o-mini',
+  },
+  {
+    name: 'Claude 3.5 Opus',
+    value: 'claude-3.5-opus',
+  },
+  {
+    name: 'Claude 3.5 Sonnet',
+    value: 'claude-3.5-sonnet',
+  },
+];
+
 export function AiSelector() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -34,11 +53,11 @@ export function AiSelector() {
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="gpt-4o">GPT 4o</SelectItem>
-        <SelectItem value="gpt-4o-mini">GPT 4o Mini</SelectItem>
-        <SelectItem value="claude-3.5-opus">Claude 3.5 Opus</SelectItem>
-        <SelectItem value="claude-3.5-sonnet">Claude 3.5 Sonnet</SelectItem>
-        <SelectItem value="claude-3.5-haiku">Claude 3.5 Haiku</SelectItem>
+        {AI_OPTIONS.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {option.name}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   );
