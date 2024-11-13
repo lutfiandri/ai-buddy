@@ -5,10 +5,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export function AiSelector() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const ai = searchParams.get('ai');
+    if (ai === null) {
+      setSearchParams({
+        ai: 'gpt-4o',
+      });
+    }
+  }, [searchParams, setSearchParams]);
+
+  const onSelectChange = (value: string) => {
+    searchParams.set('ai', value);
+    setSearchParams(searchParams);
+  };
+
   return (
-    <Select defaultValue="gpt-4o">
+    <Select
+      value={searchParams.get('ai') as string}
+      onValueChange={onSelectChange}
+    >
       <SelectTrigger className="w-fit">
         <SelectValue />
       </SelectTrigger>
