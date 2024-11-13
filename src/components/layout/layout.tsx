@@ -56,13 +56,7 @@ export function Layout({ children }: Props) {
             </SelectContent>
           </Select>
         </header>
-        <main className="w-full min-h-screen flex flex-col">
-          {/* <header className="flex justify-between">
-          <SidebarTrigger />
-          <Button>ingfo</Button>
-          </header> */}
-          {children}
-        </main>
+        <main className="flex-1 w-full flex flex-col">{children}</main>
       </SidebarInset>
     </>
   );
