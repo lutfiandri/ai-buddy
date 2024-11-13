@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
 import { MessageCirclePlus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Menu items.
 const items = [
@@ -138,10 +139,11 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const navigate = useNavigate();
   return (
     <Sidebar>
       <SidebarHeader>
-        <Button variant="default">
+        <Button variant="default" onClick={() => navigate('/')}>
           New Chat <MessageCirclePlus />
         </Button>
       </SidebarHeader>
